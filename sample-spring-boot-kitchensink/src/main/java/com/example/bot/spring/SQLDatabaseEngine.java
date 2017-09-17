@@ -12,9 +12,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
 		//Write your code here
-		//if(text =="abc")
-			return "def";
-		//return null;
+		
+		return null;
 	}
 	
 	
