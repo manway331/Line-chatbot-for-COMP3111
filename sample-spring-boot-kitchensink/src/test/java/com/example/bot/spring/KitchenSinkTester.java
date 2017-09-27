@@ -46,10 +46,10 @@ import com.example.bot.spring.DatabaseEngine;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { KitchenSinkTester.class, DatabaseEngine.class })
+@SpringBootTest(classes = { KitchenSinkTester.class, SQLDatabaseEngine.class })
 public class KitchenSinkTester {
 	@Autowired
-	private DatabaseEngine databaseEngine = new DatabaseEngine();
+	private DatabaseEngine databaseEngine = new SQLDatabaseEngine();
 	
 	@Test
 	public void testNotFound() throws Exception {
