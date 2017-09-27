@@ -18,7 +18,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		);
 		stmt.setString(1, text);
 		ResultSet rs =stmt.executeQuery();
-		String result = "";
+		String result = null;
 		while(rs.next()) {
 			result = rs.getString(1);
 		}
@@ -26,7 +26,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		stmt.close();
 		connection.close();
 		if(result == null)
-			result = text;
+			return text;
 		return result;
 	}
 	
