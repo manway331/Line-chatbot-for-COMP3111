@@ -14,10 +14,9 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		//Write your code here
 		Connection connection = getConnection();
 		PreparedStatement stmt = connection.prepareStatement(
-		"SELECT response FROM keyrestable where keyword like concat('%',?,'%')"
+		"SELECT response FROM keyrestable WHERE POSITION (keyword in ?) > 0"
 		);
 		stmt.setString(1, text);
-		System.out.println("TESTING");
 		ResultSet rs =stmt.executeQuery();
 		String result = "";
 		while(rs.next()) {
@@ -26,6 +25,8 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		rs.close();
 		stmt.close();
 		connection.close();
+		if(result == null)
+			result = text;
 		return result;
 	}
 	
