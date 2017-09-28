@@ -22,12 +22,14 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 		while(rs.next()) {
 			result = rs.getString(1);
 		}
+		
+		
 		rs.close();
 		stmt.close();
 		connection.close();
-		if(result == null)
-			return text;
-		return result;
+		if (result != null)
+			return result;
+		throw new Exception("NOT FOUND");
 	}
 	
 	

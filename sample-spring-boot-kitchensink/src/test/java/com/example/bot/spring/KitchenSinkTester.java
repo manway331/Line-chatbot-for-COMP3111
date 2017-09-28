@@ -54,12 +54,14 @@ public class KitchenSinkTester {
 	@Test
 	public void testNotFound() throws Exception {
 		boolean thrown = false;
+		String result = null;
 		try {
 			this.databaseEngine.search("no");
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(thrown);
+		assertThat(thrown).isEqualTo(true);
+		
 	}
 	
 	@Test
